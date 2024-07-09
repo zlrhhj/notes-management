@@ -1,35 +1,34 @@
-const path = require('path');
-const webpack = require('webpack');
+var path = require("path");
+var SRC_DIR = path.join(__dirname, "/client/src");
+var DIST_DIR = path.join(__dirname, "/client/dist");
 
 module.exports = {
-  mode: 'development',
-  entry: path.join(__dirname,'./client/src/index.jsx'),
+  mode: "development",
+  devtool: "inline-source-map",
+  entry: `${SRC_DIR}/index.jsx`,
   output: {
-    path:path.join(__dirname, 'client/dist'),
-    filename: 'bundle.js'
+    filename: "bundle.js",
+    path: DIST_DIR
   },
-  devtool:"source-map",
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        include: path.join(__dirname, 'client/src'),
+        test: [/\.jsx$/],
         exclude: /node_modules/,
         use:{
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ["@babel/preset-env", "@babel/preset-react"],
           }
-        },
+        }
       },
       {
-        test: /\.css$/i,
-        use:["style-loader", "css-loader"],
-      },
-      {
-          test: /\.(png|svg|jpe?g|gif)$/i,
-          type: 'asset/resource',
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader"}
+        ]
       }
     ]
-  },
-}
+  }
+};
