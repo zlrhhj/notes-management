@@ -1,0 +1,33 @@
+{
+  "name": "notes-management-app",
+  "version": "1.0.0",
+  "description": "A basic notes management app",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack",
+    "client-dev": "npx webpack --watch",
+    "server-dev": "npx nodemon --watch server server/index.js"
+  },
+  "dependencies": {
+    "axios": "1.7.2",
+    "dotenv": "16.4.5",
+    "express": "4.17.1",
+    "fs": "0.0.1-security",
+    "mongoose": "^6.0.8",
+    "node": "^19.0.1",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
+    "react": "18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.17.0",
+    "@babel/preset-env": "7.24.7",
+    "@babel/preset-react": "7.24.7",
+    "babel-loader": "8.2.3",
+    "babel-plugin-styled-components": "1.13.2",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "4.7.3"
+  }
+}
